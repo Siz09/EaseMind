@@ -14,20 +14,24 @@ import java.io.IOException;
 public class FirebaseConfig {
 
     @Bean
-    public FirebaseAuth firebaseAuth() throws IOException {
-        // Load Firebase service account credentials
-        GoogleCredentials credentials = GoogleCredentials.fromStream(
-                new ClassPathResource("firebase-service-account.json").getInputStream()
-        );
+    public FirebaseAuth firebaseAuth() {
+        try {
+            GoogleCredentials credentials = GoogleCredentials.fromStream(
+                    new ClassPathResource("firebase-service-account.json").getInputStream()
+            );
 
-        FirebaseOptions options = FirebaseOptions.builder()
-                .setCredentials(credentials)
-                .build();
+            FirebaseOptions options = FirebaseOptions.builder()
+                    .setCredentials(credentials)
+                    .setProjectId("mentalhealth-99210")
+                    .build();
 
-        if (FirebaseApp.getApps().isEmpty()) {
-            FirebaseApp.initializeApp(options);
+            if (FirebaseApp.getApps().isEmpty()) {
+                FirebaseApp.initializeApp(options);
+            }
+            return FirebaseAuth.getInstance();
+
+        } catch (IOException e) {
+            throw new IllegalStateException("Failed to initialize Firebase Auth", e);
         }
-
-        return FirebaseAuth.getInstance();
     }
 }

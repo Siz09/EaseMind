@@ -1,4 +1,4 @@
-package com.mindease.backend.auth;  // Make sure package is correct
+package com.mindease.backend.auth;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseToken;
