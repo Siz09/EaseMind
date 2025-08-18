@@ -11,7 +11,12 @@ module.exports = {
   ],
   plugins: ['react', 'jsx-a11y', 'prettier'],
   rules: {
-    'prettier/prettier': ['error'],
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'lf',
+      },
+    ],
   },
   settings: {
     react: {
