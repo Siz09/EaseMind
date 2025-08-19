@@ -31,6 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+docker-compose.ym
 
-firebase-service-account.json
-backend/target/
+application.properties

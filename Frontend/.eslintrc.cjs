@@ -9,15 +9,8 @@ module.exports = {
     'plugin:jsx-a11y/recommended',
     'prettier',
   ],
-  plugins: ['react', 'jsx-a11y', 'prettier'],
-  rules: {
-    'prettier/prettier': [
-      'error',
-      {
-        endOfLine: 'lf',
-      },
-    ],
-  },
+  plugins: ['react', 'jsx-a11y'],
+  rules: {},
   settings: {
     react: {
       version: 'detect',

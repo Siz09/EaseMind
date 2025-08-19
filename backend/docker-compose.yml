@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:14
+    container_name: mindease-db
+    environment:
+      POSTGRES_DB: mindease
+      POSTGRES_USER: mindease
+      POSTGRES_PASSWORD: "siz@09"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - mindease-network
+
+volumes:
+  postgres_data:
+
+networks:
+  mindease-network:
+    driver: bridge
